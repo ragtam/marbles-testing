@@ -1,0 +1,27 @@
+{
+    "name": "marbles-testing-part-1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "prettify": "npx prettier --write ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/core": "^7.16.12",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-typescript": "^7.16.7",
+        "babel-jest": "^27.4.6",
+        "rxjs": "^7.5.2"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.4.0",
+        "jest": "^27.4.7",
+        "prettier": "^2.5.1",
+        "ts-jest": "^27.1.3",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.5"
+    }
+}
