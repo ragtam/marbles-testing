@@ -9,8 +9,8 @@ const testScheduler = new TestScheduler((actual, expected) => {
 // this is the solution: https://github.com/ReactiveX/rxjs/issues/2757
 
 test('should light the bulb and then die (complete)', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch$ = cold('i', { i: true });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch$ = hot('i', { i: true });
 
         const result$ = lightTheBulb(switch$);
 

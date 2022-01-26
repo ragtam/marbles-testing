@@ -22,9 +22,9 @@ test('it should light the bulb if first switch is moved to ON position', () => {
 });
 
 test('it should light the bulb if second switch is moved to ON position', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch1$ = cold('---') as Observable<boolean>;
-        const switch2$ = cold('--i', { i: true });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch1$ = hot('---') as Observable<boolean>;
+        const switch2$ = hot('--i', { i: true });
 
         const result$ = lightBulbWithStaircaseWiring(switch1$, switch2$);
 
@@ -33,9 +33,9 @@ test('it should light the bulb if second switch is moved to ON position', () => 
 });
 
 test('it should light the bulb ON and OFF if switches are switching', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch1$ = cold('---i---o---i', { i: true, o: false });
-        const switch2$ = cold('-i---o---i--', { i: true, o: false });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch1$ = hot('---i---o---i', { i: true, o: false });
+        const switch2$ = hot('-i---o---i--', { i: true, o: false });
         const expected$ = '           -i-o-i-o-i-o';
 
         const result$ = lightBulbWithStaircaseWiring(switch1$, switch2$);

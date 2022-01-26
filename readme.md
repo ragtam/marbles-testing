@@ -79,8 +79,8 @@ Without marbles, we would have to introduce fakeTimers and waits. Look how easy 
 
 ```
 test('should light the bulb after 10ms delay', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch$ = cold('i', { i: true });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch$ = hot('i', { i: true });
 
         const result$ = lightBulb(switch$);
 
@@ -113,9 +113,9 @@ Then we move the other to ON, and light goes off. Basically it's a XOR logical o
 
 ```
 test('it should light the bulb ON and OFF if switches are switching', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch1$ = cold('---i---o---i', { i: true, o: false });
-        const switch2$ = cold('-i---o---i--', { i: true, o: false });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch1$ = hot('---i---o---i', { i: true, o: false });
+        const switch2$ = hot('-i---o---i--', { i: true, o: false });
         const expected$ = '    -i-o-i-o-i-o';
 
         const result$ = lightBulbWithStaircaseWiring(switch1$, switch2$);
@@ -168,3 +168,6 @@ test('it should light the bulb ON and OFF if switches are switching', () => {
 ```
 
 The difference is self explanatory. 
+
+Hopefully after reading this article you have a basic understanding of RxJS Marbles and you are now ready to (re)visit RxJS docs to
+investigate the subject further. You can also go and check my repo, where you'll find full code examples used in this article and some other examples on testing the observables.
