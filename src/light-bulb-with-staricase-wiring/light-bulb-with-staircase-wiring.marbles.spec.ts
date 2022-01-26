@@ -1,5 +1,5 @@
 import { TestScheduler } from 'rxjs/testing';
-import { lightBulbWithStaircaseWiring } from "./light-bulb-with-staircase-wiring";
+import { lightBulbWithStaircaseWiring } from './light-bulb-with-staircase-wiring';
 import { Observable } from 'rxjs';
 
 let testScheduler: TestScheduler;

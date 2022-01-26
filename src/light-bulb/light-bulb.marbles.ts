@@ -6,8 +6,8 @@ const testScheduler = new TestScheduler((actual, expected) => {
 });
 
 test('should light the bulb when switch is on', () => {
-    testScheduler.run(({ cold, expectObservable }) => {
-        const switch$ = cold('i', { i: true });
+    testScheduler.run(({ hot, expectObservable }) => {
+        const switch$ = hot('i', { i: true });
 
         const result$ = lightBulb(switch$);
 

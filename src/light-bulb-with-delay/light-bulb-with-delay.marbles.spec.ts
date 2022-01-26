@@ -7,7 +7,7 @@ beforeEach(() => {
     testScheduler = new TestScheduler((actual, expected) => {
         expect(actual).toEqual(expected);
     });
-})
+});
 
 test('should light the bulb with 10ms delay #1', () => {
     testScheduler.run(({ cold, expectObservable }) => {
@@ -18,7 +18,6 @@ test('should light the bulb with 10ms delay #1', () => {
         expectObservable(result$).toBe('----------i', { i: true });
     });
 });
-
 
 test('should light the bulb with 10ms delay #2', () => {
     testScheduler.run(({ cold, expectObservable }) => {

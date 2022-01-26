@@ -1,5 +1,5 @@
-import { Subject } from "rxjs";
-import { lightBulbWithStaircaseWiring } from "./light-bulb-with-staircase-wiring";
+import { Subject } from 'rxjs';
+import { lightBulbWithStaircaseWiring } from './light-bulb-with-staircase-wiring';
 
 afterEach(() => {
     jest.useRealTimers();
@@ -14,9 +14,9 @@ test('it should light the bulb ON and OFF if switches are switching', () => {
     jest.useFakeTimers();
 
     lightBulbWithStaircaseWiring(switch1$, switch2$).subscribe({
-        next: isLightOn => {
+        next: (isLightOn) => {
             resultArray.push(isLightOn);
-        }
+        },
     });
 
     switch1$.next(true);
